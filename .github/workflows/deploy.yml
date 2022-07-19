@@ -1,0 +1,17 @@
+name: Deploy to Amazon ECS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: TEST
+    runs-on: ubuntu-latest
+    environment: stage
+
+    steps:
+      - name: Test Env
+        run: |
+          echo $TEST_SECRET
