@@ -5,6 +5,9 @@ on:
     branches:
       - main
 
+env:
+  AWS_REGION: AWS_REGION
+
 jobs:
   deploy:
     name: TEST
@@ -14,4 +17,5 @@ jobs:
     steps:
       - name: Test Env
         run: |
-          echo $TEST_SECRET
+          echo ${{ secrets.TEST_SECRET }}
+          echo $AWS_REGION
