@@ -17,8 +17,8 @@
             "containerPort": 1323
           }
         ],
-        "image": "",
-        "name": ""
+        "image": "AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/ecs-deploy-test/dev",
+        "name": "echo-server-dev"
       }
     ],
     "memory": "512",
