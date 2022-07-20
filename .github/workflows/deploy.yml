@@ -45,12 +45,6 @@ jobs:
           docker push $ECR_REGISTRY/$ECR_REPOSITORY/dev:$IMAGE_TAG
           echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
 
-      # - name: Download task definition
-      #   run: |
-      #     # aws ecs describe-task-definition --task-definition ${{ secrets.ECS_TASK_DEFINITION }} \
-      #     # --query taskDefinition > task-definition.json
-      #     echo ${{ secrets.ECS_TASK_DEFINITION }} > task-definition.json
-
       - name: rewrite task-definition
         run: sed -i -e s/AWS_ACCOUNT_ID/${{ secrets.AWS_ACCOUNT_ID }}/g task-definition.json
 
