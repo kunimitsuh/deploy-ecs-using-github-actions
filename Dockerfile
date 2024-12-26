@@ -1,7 +1,7 @@
 ##
 ## Development
 ##
-FROM golang:1.18.4 as dev
+FROM golang:1.22-bookworm as dev
 WORKDIR /app
 COPY . .
 RUN go mod download
@@ -10,7 +10,7 @@ RUN go mod download
 ##
 ## Builder
 ##
-FROM golang:1.18.4 as builder
+FROM golang:1.22-bookworm as builder
 
 WORKDIR /app
 
