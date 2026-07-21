@@ -1,7 +1,7 @@
 ##
 ## Development
 ##
-FROM golang:1.24-bookworm AS dev
+FROM golang:1.26-trixie AS dev
 WORKDIR /app
 COPY . .
 RUN go mod download
@@ -10,7 +10,7 @@ RUN go mod download
 ##
 ## Builder
 ##
-FROM golang:1.24-bookworm AS builder
+FROM golang:1.26-trixie AS builder
 
 WORKDIR /app
 
@@ -23,7 +23,7 @@ RUN GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o main main.g
 ##
 ## Production Deploy
 ##
-FROM alpine AS prod
+FROM alpine:3.24 AS prod
 
 WORKDIR /app
 
