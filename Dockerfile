@@ -18,7 +18,7 @@ COPY . .
 
 RUN go mod download
 
-RUN GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o main main.go
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o main .
 
 ##
 ## Production Deploy
@@ -29,6 +29,9 @@ WORKDIR /app
 
 COPY --from=builder /app/main ./
 
-ENV GIN_MODE=release
+RUN addgroup -S app && adduser -S app -G app && chown -R app:app /app
+USER app
+
+EXPOSE 1323
 
 ENTRYPOINT ["./main"]
