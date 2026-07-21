@@ -1,0 +1,13 @@
+# Compiled binary (module name output from `go build`)
+/deployEcsUsingGithubActions
+/main
+
+# Go build/test artifacts
+*.exe
+*.test
+*.out
+coverage.*
+
+# Local environment
+.env
+.env.local
